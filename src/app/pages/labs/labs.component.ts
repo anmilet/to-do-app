@@ -26,5 +26,13 @@ export class LabsComponent {
     photo:'https://w3schools.com/howto/img_avatar.png',
     age:20
   }
+
+ clickHandler() {
+    alert('Hola a todos!')
+  }
+
+  changeHandler(event:Event){
+    console.log(event)    
+  }
   
 }
