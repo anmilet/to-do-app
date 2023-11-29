@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,7 +15,7 @@ export class LabsComponent {
     'Crear Proyecto',
     'Crear Componentes'
   ];
-  name='Miletza';
+  name=signal('Miletza');
   age= '40';
   private id='1451537636'; /* esta es una variable privada y no se puede acceder desde el html, solo de este componente */
   disabled=true;
@@ -32,7 +32,10 @@ export class LabsComponent {
   }
 
   changeHandler(event:Event){
-    console.log(event)    
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value
+    this.name.set(newValue)
+ 
   }
 
   keydownHandler(event: KeyboardEvent){
