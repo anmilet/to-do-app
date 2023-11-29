@@ -24,7 +24,12 @@
     <hr/>
     <button (click)="clickHandler()">click Saluda</button> &nbsp;&nbsp;
     <button ((dblclick))="clickHandler()">double click Saluda</button>
-    <P>change</P>
-    <input type="number" [value]="person.age" (change)="changeHandler($event)"><br>
-    
+    <P>change number</P>
+    <input type="number" [value]="person.age" (change)="changeHandler($event)">
+    <P>change text</P>
+    <input type="text" [value]="person.name" (change)="changeHandler($event)">
+    <p>Keydown</p>
+    <input type="tex" [value]="person.name" (keydown)="keydownHandler($event)">
+    <p>Keydown shift + t</p>
+    <input type="tex" [value]="person.name" (keydown.shift.t)="clickHandler()">
 </div>
