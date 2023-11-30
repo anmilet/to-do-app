@@ -10,11 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class LabsComponent {
   welcome='Hola a Todos'
-  tasks=[
+  tasks=signal([
     'Instalar el Angular CLI',
     'Crear Proyecto',
-    'Crear Componentes'
-  ];
+    'Crear Componente',
+    'Crear Servicio'
+  ]);
   name=signal('Miletza');
   age= '40';
   private id='1451537636'; /* esta es una variable privada y no se puede acceder desde el html, solo de este componente */
