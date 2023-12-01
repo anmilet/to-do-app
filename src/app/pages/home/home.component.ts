@@ -10,6 +10,7 @@ import { Task } from './../../models/task.model';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
   tasks=signal<Task[]>([
     {
       id: Date.now(),
@@ -45,4 +46,19 @@ export class HomeComponent {
         (task, position) => position !== index
         ));
   }
+
+  updateTask(index: number){
+    this.tasks.update((tasks) => {
+      return tasks.map((task, position) =>{
+        if (position === index){
+          return {
+            ...task,
+            completed: !task.completed
+          }
+        }
+        return task
+      })
+    })
+  }
+
 }
