@@ -13,25 +13,25 @@
     <hr/>
     <img [src]="imag" alt=""> <br>
     <input type="text" [value]="name()"> &nbsp;
-    <input type="number" [value]="person.age">&nbsp;
+    <input type="number" [value]="person().age">&nbsp;
     <button [disabled]="disabled">Click me</button>
     <hr/>
     <p><b>Persona</b><br>
-      Nombre:{{person.name}} <br>
-      Edad: {{person.age}} <br>
-      Foto: <img [src]="person.photo" alt="" class="avatar">
+      Nombre:{{person().name}} <br>
+      Edad: {{person().age}} <br>
+      Foto: <img [src]="person().photo" alt="" class="avatar">
     </p>
     <hr/>
     <button (click)="clickHandler()">click Saluda</button> &nbsp;&nbsp;
     <button ((dblclick))="clickHandler()">double click Saluda</button>
     <P>change number</P>
-    <input type="number" [value]="person.age" (change)="changeHandler($event)">
+    <input type="number" [value]="person().age" (change)="changeHandler($event)">
     <P>change text</P>
-    <input type="text" [value]="person.name" (change)="changeHandler($event)">
+    <input type="text" [value]="person().name" (change)="changeHandler($event)">
     <p>Keydown</p>
-    <input type="tex" [value]="person.name" (keydown)="keydownHandler($event)">
+    <input type="tex" [value]="person().name" (keydown)="keydownHandler($event)">
     <p>Keydown shift + t</p>
-    <input type="tex" [value]="person.name" (keydown.shift.t)="clickHandler()">
+    <input type="tex" [value]="person().name" (keydown.shift.t)="clickHandler()">
     <hr>
     <p>Signals</p>
     <input type="text" [value]="name()" (change)="changeHandler($event)">
@@ -44,4 +44,17 @@
           {{ i }} {{ task }}
           </li>
         </ul>
+    <hr>
+    <div *ngIf="name() ==='Miletza'">
+      Soy Miletza
+    </div>
+    <input type="number" [value]="person().age" (change)="changeAge($event)">
+    <div *ngIf="person().name ==='Luis' && person().age > 18 else miBloque">
+      Soy Luis mayor de 18
+    </div>
+    <ng-template #miBloque>
+      <div>
+      Soy Luis menor de 18
+    </div>
+    </ng-template>
 </div>

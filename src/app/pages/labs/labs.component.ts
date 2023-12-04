@@ -22,11 +22,11 @@ export class LabsComponent {
   disabled=true;
   imag='https://picsum.photos/200';
 
-  person = {
+  person = signal({
     name:'Luis',
     photo:'https://w3schools.com/howto/img_avatar.png',
     age:20
-  }
+  });
 
  clickHandler() {
     alert('Hola a todos!')
@@ -38,7 +38,17 @@ export class LabsComponent {
     this.name.set(newValue)
  
   }
-
+  
+  changeAge(event:Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value
+    this.person.update(prevState => {
+      return {...prevState,
+      age: parseInt(newValue,10)
+    }
+    }) 
+  }
+  
   keydownHandler(event: KeyboardEvent){
     const input = event.target as HTMLInputElement;
     console.log(input.value)    
