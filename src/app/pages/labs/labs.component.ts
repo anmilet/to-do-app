@@ -23,7 +23,7 @@ export class LabsComponent {
   imag='https://picsum.photos/200';
 
   person = signal({
-    name:'Luis',
+    name:'Ana',
     photo:'https://w3schools.com/howto/img_avatar.png',
     age:20
   });
@@ -48,7 +48,15 @@ export class LabsComponent {
     }
     }) 
   }
-  
+  changeName(event:Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value
+    this.person.update(prevState => {
+      return {...prevState,
+      name: newValue
+    }
+    }) 
+  }
   keydownHandler(event: KeyboardEvent){
     const input = event.target as HTMLInputElement;
     console.log(input.value)    
