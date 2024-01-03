@@ -18,7 +18,10 @@ export class LabsComponent {
     'Crear Servicio'
   ]);
 
-  colorCtrl = new FormControl;
+  colorCtrl = new FormControl();
+  widthCtrl = new FormControl(50, {
+    nonNullable: true,
+    });
 
   constructor()
   {
